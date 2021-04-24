@@ -10,9 +10,17 @@
 -export([start/2, stop/1]).
 
 start(_StartType, _StartArgs) ->
+    Dispatch = cowboy_router:compile([
+		{'_', [
+			{"/", toppage_h, []}
+		]}
+	]),
+	{ok, _} = cowboy:start_clear(http, [{port, 8080}], #{
+		env => #{dispatch => Dispatch}
+	}),
     npumbrella_sup:start_link().
 
 stop(_State) ->
-    ok.
+    ok = cowboy:stop_listener(http).
 
 %% internal functions
