@@ -5,5 +5,5 @@ RUN wget https://github.com/erlang/rebar3/releases/download/3.15.1/rebar3 && chm
 RUN ./rebar3 --version
 
 ADD . /app
-
-CMD escript hello.erl
+RUN ./rebar3 release
+CMD _build/default/rel/npumbrella/bin/npumbrella foreground
