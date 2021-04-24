@@ -1,16 +1,16 @@
 %%%-------------------------------------------------------------------
-%% @doc npapp public API
+%% @doc npumbrella public API
 %% @end
 %%%-------------------------------------------------------------------
 
--module(npapp_app).
+-module(npumbrella_app).
 
 -behaviour(application).
 
 -export([start/2, stop/1]).
 
 start(_StartType, _StartArgs) ->
-    npapp_sup:start_link().
+    npumbrella_sup:start_link().
 
 stop(_State) ->
     ok.

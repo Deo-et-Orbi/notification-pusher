@@ -1,9 +1,9 @@
 %%%-------------------------------------------------------------------
-%% @doc npapp top level supervisor.
+%% @doc npumbrella top level supervisor.
 %% @end
 %%%-------------------------------------------------------------------
 
--module(npapp_sup).
+-module(npumbrella_sup).
 
 -behaviour(supervisor).
 

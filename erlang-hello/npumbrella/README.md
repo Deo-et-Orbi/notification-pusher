@@ -1,4 +1,4 @@
-npapp
+npumbrella
 =====
 
 An OTP application

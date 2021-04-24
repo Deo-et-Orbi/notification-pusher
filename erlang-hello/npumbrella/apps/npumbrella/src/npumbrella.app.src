@@ -1,8 +1,8 @@
-{application, npapp,
+{application, npumbrella,
  [{description, "An OTP application"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, {npapp_app, []}},
+  {mod, {npumbrella_app, []}},
   {applications,
    [kernel,
     stdlib
