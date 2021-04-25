@@ -1,0 +1,22 @@
+name: Deploy to GCP Cloud Run on merge
+'on':
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: deoetorbi
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - run: gcloud components install beta
+      - run: echo $FBA_S_A > ./serviceAccount.json
+        env:
+          FBA_S_A: ${{ secrets.FIREBASE_ADMIN_SERVICE_ACCOUNT }}
+      - run: ./deploy.sh
