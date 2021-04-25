@@ -1,0 +1,2 @@
+# Prevents from excluding serviceAccount.json file
+.git
